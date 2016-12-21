@@ -1,3 +1,5 @@
+## Broken as of November 2016. Not sure if this will be used again.
+
 .ucscBase <- "http://hgdownload.cse.ucsc.edu/"
 
 .getchainFiles <- function(url, fileName=NA_character_, verbose=TRUE) {

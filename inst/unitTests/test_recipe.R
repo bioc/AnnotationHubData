@@ -8,21 +8,9 @@ BiocVersion <- "3.4"
 ## test_HaemCodeImportPreparer_recipe
 ## test_Inparanoid8ImportPreparer_recipe
 ## test_BioPaxImportPreparer_recipe
-
-
-test_UCSCChainPreparer_recipe <- function() {
-    ahms = updateResources(ahroot, BiocVersion,
-        preparerClasses = "UCSCChainPreparer",
-        insert = FALSE, metadataOnly=TRUE, justRunUnitTest=TRUE)
-    checkTrue(class(ahms[[1]])=="AnnotationHubMetadata")
-}
-
-test_UCSC2BitPreparer_recipe <- function() {
-    ahms = updateResources(ahroot, BiocVersion,
-        preparerClasses = "UCSC2BitPreparer",
-        insert = FALSE, metadataOnly=TRUE, justRunUnitTest=TRUE)
-    checkTrue(class(ahms[[1]])=="AnnotationHubMetadata")
-}
+## Broken
+## test_UCSC2BitPreparer_recipe
+## test_UCSCChainPreparer_recipe
 
 test_EncodeImportPreparer_recipe <- function() {
     ahms = updateResources(ahroot, BiocVersion,

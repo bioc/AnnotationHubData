@@ -1,3 +1,5 @@
+## Broken as of November 2016. Not sure if this will be used again.
+
 make2bit <- function(currentMetadata, justRunUnitTest=FALSE, 
                      BiocVersion=biocVersion()) {
     rsrc <- .getUCSCResources(fileType="2bit", dirName="bigZips", 
