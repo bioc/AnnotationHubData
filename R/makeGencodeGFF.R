@@ -66,12 +66,13 @@
     # this information is curated from Gencode's website
     # link - http://www.gencodegenes.org/releases/
     if (species=="Human")
-      tblurl <- "http://www.gencodegenes.org/releases/"
+      tblurl <- "https://www.gencodegenes.org/releases/"
     else 
-      tblurl <- "http://www.gencodegenes.org/mouse_releases/"
+      tblurl <- "https://www.gencodegenes.org/mouse_releases/"
     
     ## read in the table
-    tbl <- XML::readHTMLTable(tblurl, header=TRUE, stringsAsFactors=FALSE)    
+    http <- RCurl::getURL(tblurl)
+    tbl <- XML::readHTMLTable(http, header=TRUE, stringsAsFactors=FALSE)    
     tbl <- tbl[[1]]
     tblheader <- gsub("\n", "", colnames(tbl))
     tblheader = trimws(tblheader)
