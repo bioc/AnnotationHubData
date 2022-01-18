@@ -66,14 +66,14 @@
 
 \usage{
 AnnotationHubMetadata(AnnotationHubRoot, SourceUrl, SourceType,
-		 SourceVersion, SourceLastModifiedDate, SourceMd5 =
-		 NA_character_, SourceSize, DataProvider, Title,
+		 SourceVersion, SourceLastModifiedDate = as.POSIXct(NA_character_), SourceMd5 =
+		 NA_character_, SourceSize = NA_real_, DataProvider, Title,
 		 Description, Species, TaxonomyId, Genome, Tags,
 		 Recipe, RDataClass, RDataDateAdded, RDataPath,
 		 Maintainer, ..., BiocVersion = BiocManager::version(),
 		 Coordinate_1_based = TRUE, Notes = NA_character_,
 		 DispatchClass, Location_Prefix =
-		 "http://s3.amazonaws.com/annotationhub/")
+		 "https://bioconductorhubs.blob.core.windows.net/annotationhub/")
 
 toJson(x)
 constructSeqInfo(species, genome)
