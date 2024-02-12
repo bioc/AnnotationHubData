@@ -31,7 +31,7 @@
     # The dir list points to the current and parent, remove them
     listOfDirs <- listOfDirs[! (listOfDirs %in% c(".", "..")) ]
     listOfDirs <- listOfDirs[ listOfDirs %in% genomes ]
-    listOfDirs
+    sort(listOfDirs)
     }    
 
 ###############################################
