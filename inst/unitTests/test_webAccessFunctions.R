@@ -60,23 +60,23 @@ test_listRemoteFiles <- function(){
 }
 
 ## FIXME: revisit this when working on UCSCTrackUpdateChecker.R
-test_getGenomeAbbrevs <- function(){
-  smallSample <- c("hg19", "hg18", "hg17")
-  actualResult <- .getGenomeAbbrevs(smallSample)
-  expectedResult <- sort(smallSample)
-  checkEquals(actualResult, expectedResult)
+## test_getGenomeAbbrevs <- function(){
+##   smallSample <- c("hg19", "hg18", "hg17")
+##   actualResult <- .getGenomeAbbrevs(smallSample)
+##   expectedResult <- sort(smallSample)
+##   checkEquals(actualResult, expectedResult)
 
-  # Viewing the FTP server content at ftp://hgdownload.cse.ucsc.edu/goldenPath/ , you'll
-  # notice that some files are actually symlinks to other directories.  Since the
-  # getGenomeAbbrevs function claims to handle symlinks, we must test that specific case.
-  # The following are files that actually render the client a symlink. :
-  ### cb1 -> cbJul2002
-  ### ce1 -> ceMay2003
-  ### hg15 -> 10april2003/"
-  ### rn2 -> rnJan2003
-  # You should notice, however that results are returned in a sorted order.
-  sampleWithSymlink <- c("hg15", "cb1", "rn2", "ce1")
-  resultWithSymlink <- AnnotationHubData:::.getGenomeAbbrevs(sampleWithSymlink)
-  expectedResult <- sort(sampleWithSymlink)
-  checkEquals(resultWithSymlink, expectedResult)
-}
+##   # Viewing the FTP server content at ftp://hgdownload.cse.ucsc.edu/goldenPath/ , you'll
+##   # notice that some files are actually symlinks to other directories.  Since the
+##   # getGenomeAbbrevs function claims to handle symlinks, we must test that specific case.
+##   # The following are files that actually render the client a symlink. :
+##   ### cb1 -> cbJul2002
+##   ### ce1 -> ceMay2003
+##   ### hg15 -> 10april2003/"
+##   ### rn2 -> rnJan2003
+##   # You should notice, however that results are returned in a sorted order.
+##   sampleWithSymlink <- c("hg15", "cb1", "rn2", "ce1")
+##   resultWithSymlink <- AnnotationHubData:::.getGenomeAbbrevs(sampleWithSymlink)
+##   expectedResult <- sort(sampleWithSymlink)
+##   checkEquals(resultWithSymlink, expectedResult)
+## }

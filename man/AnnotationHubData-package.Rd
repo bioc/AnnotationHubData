@@ -1,5 +1,4 @@
 \name{AnnotationHubData-package}
-\alias{AnnotationHubRecipes-package}
 \alias{AnnotationHubRecipes}
 \alias{AnnotationHubData-package}
 

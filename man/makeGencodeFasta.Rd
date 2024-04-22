@@ -24,7 +24,7 @@ gencodeFastaToFaFile(ahm)
 }
 
 \details{
-  \itemize{
+  \describe{
     \item{Documentation:}{
       http://www.gencodegenes.org/releases/
     }
