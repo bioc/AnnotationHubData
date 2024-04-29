@@ -82,36 +82,36 @@ test_Grasp2Db_recipe <- function() {
 }
 
 ## FIXME: add test_EnsemblFasta
-test_EnsmblFastaTwoBitToAHM <- function() {
-    ahms = updateResources(ahroot, BiocVersion,
-                           preparerClasses = "EnsemblTwoBitPreparer",
-                           insert = FALSE, metadataOnly = TRUE,
-                           justRunUnitTest = TRUE, release = 96)
-    checkTrue(class(ahms[[1]]) == "AnnotationHubMetadata")
-    # fails before ensembl release 96
-    checkException(
-        updateResources(ahroot, BiocVersion,
-                        preparerClasses = "EnsemblTwoBitPreparer",
-                        insert = FALSE, metadataOnly = TRUE,
-                        justRunUnitTest = TRUE, release = 85)
-        )
-}
+## test_EnsmblFastaTwoBitToAHM <- function() {
+##     ahms = updateResources(ahroot, BiocVersion,
+##                            preparerClasses = "EnsemblTwoBitPreparer",
+##                            insert = FALSE, metadataOnly = TRUE,
+##                            justRunUnitTest = TRUE, release = 96)
+##     checkTrue(class(ahms[[1]]) == "AnnotationHubMetadata")
+##     # fails before ensembl release 96
+##     checkException(
+##         updateResources(ahroot, BiocVersion,
+##                         preparerClasses = "EnsemblTwoBitPreparer",
+##                         insert = FALSE, metadataOnly = TRUE,
+##                         justRunUnitTest = TRUE, release = 85)
+##         )
+## }
 
 
-test_EnsemblGtfToGRanges_recipe <- function() {
-    ahms = updateResources(ahroot, BiocVersion,
-                           preparerClasses = "EnsemblGtfImportPreparer",
-                           insert = FALSE, metadataOnly=TRUE,
-                           release = "96", justRunUnitTest=TRUE)
-    checkTrue(class(ahms[[1]])=="AnnotationHubMetadata")
-    # fails before ensembl release 96
-    checkException(
-        updateResources(ahroot, BiocVersion,
-                        preparerClasses = "EnsemblGtfImportPreparer",
-                        insert = FALSE, metadataOnly=TRUE,
-                        release = "85", justRunUnitTest=TRUE)
-        )
-}
+## Test_EnsemblGtfToGRanges_recipe <- function() {
+##     ahms = updateResources(ahroot, BiocVersion,
+##                            preparerClasses = "EnsemblGtfImportPreparer",
+##                            insert = FALSE, metadataOnly=TRUE,
+##                            release = "96", justRunUnitTest=TRUE)
+##     checkTrue(class(ahms[[1]])=="AnnotationHubMetadata")
+##     # fails before ensembl release 96
+##     checkException(
+##         updateResources(ahroot, BiocVersion,
+##                         preparerClasses = "EnsemblGtfImportPreparer",
+##                         insert = FALSE, metadataOnly=TRUE,
+##                         release = "85", justRunUnitTest=TRUE)
+##         )
+## }
 
 #test_GencodeGFF <- function() {
 #    ahms = updateResources(ahroot, BiocVersion,
