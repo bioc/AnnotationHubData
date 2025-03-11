@@ -62,24 +62,15 @@
     sourceUrl <- rep(list(sourceUrls), length(fullSpecies))
 
     tryCatch({
-        if (!requireNamespace("AzureStor", quietly = TRUE)){
-            message("AzureStor not installed.\n  Regenerating all files")
-            azurefiles <- character(0)
-        }else{
-            sas = Sys.getenv("AZURE_SAS_TOKEN", NA_character_)
-            if(is.na(sas)){
-                message("AZURE_SAS_TOKEN environment variable is not set.\n  Regenerating all files.")
-                azurefiles <- character(0)
-            }else{
-                ep <- AzureStor::storage_endpoint(endpoint="https://bioconductorhubs.blob.core.windows.net",
-                                                  sas=sas)
-                ## assumes upload to staginghub
-                container <- AzureStor::storage_container(ep, "staginghub")
-                azurefiles <- AzureStor::list_storage_files(container,
-                                         basename(currentMetadata$AnnotationHubRoot))[,"name"]
-                azurefiles <- unlist(lapply(azurefiles, FUN=basename))
-            }
-        }
+  
+        endpoint <- "https://bioconductorhubs.blob.core.windows.net/staginghub/"
+        ## assumes upload to staginghub
+        subdir <-  basename(currentMetadata$AnnotationHubRoot)
+        args <- paste0("list '",endpoint,subdir,"'")
+        azurefiles <- system2("azcopy", args, stdout=TRUE)
+        azurefiles <- azurefiles[!grepl("^INFO", azurefiles)]
+        azurefiles <- sapply(strsplit(sapply(strsplit(azurefiles, ";"),"[[", 1), "/"), "[[", 4)
+        
     }, error=function(e){
         azurefiles <- character(0)
     }, finally={
@@ -152,23 +143,15 @@ needToRerunNonStandardOrgDb <- function(biocVersion =  BiocManager::version(),
     title <- paste0("org.", fullSpecies, ".eg", ".sqlite")
 
     tryCatch({
-        if (!requireNamespace("AzureStor", quietly = TRUE)){
-            message("AzureStor not installed.\n  Cannot determine.")
-            azurefiles <- character(0)
-        }else{
-            sas = Sys.getenv("AZURE_SAS_TOKEN", NA_character_)
-            if(is.na(sas)){
-                message("AZURE_SAS_TOKEN environment variable is not set.\n  Cannot determine.")
-                azurefiles <- character(0)
-            }else{
-                ep <- AzureStor::storage_endpoint(endpoint="https://bioconductorhubs.blob.core.windows.net",
-                                                  sas=sas)
-                ## assumes upload to staginghub
-                container <- AzureStor::storage_container(ep, "staginghub")
-                azurefiles <- AzureStor::list_storage_files(container, resourceDir)[,"name"]
-                azurefiles <- unlist(lapply(azurefiles, FUN=basename))
-            }
-        }
+  
+        endpoint <- "https://bioconductorhubs.blob.core.windows.net/staginghub/"
+        ## assumes upload to staginghub
+        subdir <-  basename(currentMetadata$AnnotationHubRoot)
+        args <- paste0("list '",endpoint,subdir,"'")
+        azurefiles <- system2("azcopy", args, stdout=TRUE)
+        azurefiles <- azurefiles[!grepl("^INFO", azurefiles)]
+        azurefiles <- sapply(strsplit(sapply(strsplit(azurefiles, ";"),"[[", 1), "/"), "[[", 4)
+
     }, error=function(e){
         azurefiles <- character(0)
     }, finally={
