@@ -69,6 +69,7 @@
         args <- paste0("list '",endpoint,subdir,"'")
         azurefiles <- system2("azcopy", args, stdout=TRUE)
         azurefiles <- azurefiles[!grepl("^INFO", azurefiles)]
+        azurefiles <- azurefiles[grepl("^ncbi", azurefiles)]
         azurefiles <- sapply(strsplit(sapply(strsplit(azurefiles, ";"),"[[", 1), "/"), "[[", 4)
         
     }, error=function(e){
