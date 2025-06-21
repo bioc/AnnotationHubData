@@ -21,7 +21,8 @@ importMethodsFrom(rtracklayer,
     "trackName<-", trackNames, ucscTableQuery, export
 )
 importFrom(Biobase, AnnotatedDataFrame, ExpressionSet)
-importFrom(GenomeInfoDb, Seqinfo)
+importFrom(Seqinfo, Seqinfo)
+importFrom(GenomeInfoDb, loadTaxonomyDb)
 importFrom(rtracklayer, GRangesForUCSCGenome, ucscGenomes)
 importFrom(Rsamtools, bgzip)
 importFrom(AnnotationForge, makeInpDb, makeOrgPackageFromNCBI)
