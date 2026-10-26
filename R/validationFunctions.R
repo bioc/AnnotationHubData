@@ -58,7 +58,7 @@ getValidSourceTypes <- function(){
                              "CDF", "Chain", "CSV",
                              "ensembl", "FASTA", "FASTQ", "FCS", "GFF", "GRASP",
                              "GSEMatrix", "GTF", "HDF5", "HIC", "IDAT", "Inparanoid",
-                             "JSON", "MTX", "mtx.gz", "MySQL", "mzid", "mzML", "mzTab",
+                             "JSON", "MSP","MTX", "mtx.gz", "MySQL", "mzid", "mzML", "mzTab",
                              "mzXML", "Multiple", "NCBI/blast2GO", "NCBI/ensembl",
                              "NCBI/UniProt", "Parquet", "PDB", "PNG", "RDA", "RData", "RDS", "Simulated", "tab",
                              "tar.gz", "TIFF", "TSV", "TwoBit", "TXT", "UCSC track",

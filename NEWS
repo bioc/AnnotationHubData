@@ -3,6 +3,13 @@ CHANGES IN VERSION 1.41.0
 
 NEW FEATURES
 
+    o 1.43.1 Added MSP as acceptable source type 
+
+CHANGES IN VERSION 1.41.0
+------------------------
+
+NEW FEATURES
+
     o 1.41.1 Added Parquet as acceptable source type 
 
 CHANGES IN VERSION 1.29.0
